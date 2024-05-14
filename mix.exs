@@ -17,5 +17,5 @@ defmodule Twex.MixProject do
     ]
   end
 
-  defp deps, do: []
+  defp deps, do: [{:styler, "~> 0.11", only: [:dev, :test], runtime: false}]
 end
