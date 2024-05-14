@@ -133,11 +133,11 @@ defmodule Twex.Auth.Scope do
   @spec read_followers() :: t()
   def read_followers, do: "moderator:read:followers"
 
-  @spec read_guest_start() :: t()
-  def read_guest_start, do: "moderator:read:guest_start"
+  @spec moderator_read_guest_star() :: t()
+  def moderator_read_guest_star, do: "moderator:read:guest_star"
 
-  @spec manage_guest_start() :: t()
-  def manage_guest_start, do: "moderator:manage:guest_start"
+  @spec moderator_manage_guest_star() :: t()
+  def moderator_manage_guest_star, do: "moderator:manage:guest_star"
 
   @spec read_shield_mode() :: t()
   def read_shield_mode, do: "moderator:read:shield_mode"
@@ -235,8 +235,8 @@ defmodule Twex.Auth.Scope do
       manage_chat_settings(),
       read_chatters(),
       read_followers(),
-      read_guest_start(),
-      manage_guest_start(),
+      moderator_read_guest_star(),
+      moderator_manage_guest_star(),
       read_shield_mode(),
       manage_shield_mode(),
       read_shoutouts(),
