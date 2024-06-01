@@ -7,131 +7,131 @@ defmodule Twex.Auth.Scope do
 
   @type t() :: String.t()
 
-  @spec read_extensions() :: t()
-  def read_extensions, do: "analytics:read:extensions"
+  @spec analytics_read_extensions() :: t()
+  def analytics_read_extensions, do: "analytics:read:extensions"
 
-  @spec read_games() :: t()
-  def read_games, do: "analytics:read:games"
+  @spec analytics_read_games() :: t()
+  def analytics_read_games, do: "analytics:read:games"
 
-  @spec read_bits() :: t()
-  def read_bits, do: "bits:read"
+  @spec bits_read() :: t()
+  def bits_read, do: "bits:read"
 
-  @spec manage_ads() :: t()
-  def manage_ads, do: "channel:manage:ads"
+  @spec channel_manage_ads() :: t()
+  def channel_manage_ads, do: "channel:manage:ads"
 
-  @spec read_ads() :: t()
-  def read_ads, do: "channel:read:ads"
+  @spec channel_read_ads() :: t()
+  def channel_read_ads, do: "channel:read:ads"
 
-  @spec manage_broadcast() :: t()
-  def manage_broadcast, do: "channel:manage:broadcast"
+  @spec channel_manage_broadcast() :: t()
+  def channel_manage_broadcast, do: "channel:manage:broadcast"
 
-  @spec read_charity() :: t()
-  def read_charity, do: "channel:read:charity"
+  @spec channel_read_charity() :: t()
+  def channel_read_charity, do: "channel:read:charity"
 
-  @spec edit_commercial() :: t()
-  def edit_commercial, do: "channel:edit:commercial"
+  @spec channel_edit_commercial() :: t()
+  def channel_edit_commercial, do: "channel:edit:commercial"
 
-  @spec read_editors() :: t()
-  def read_editors, do: "channel:read:editors"
+  @spec channel_read_editors() :: t()
+  def channel_read_editors, do: "channel:read:editors"
 
-  @spec manage_extensions() :: t()
-  def manage_extensions, do: "channel:manage:extensions"
+  @spec channel_manage_extensions() :: t()
+  def channel_manage_extensions, do: "channel:manage:extensions"
 
-  @spec read_goals() :: t()
-  def read_goals, do: "channel:read:goals"
+  @spec channel_read_goals() :: t()
+  def channel_read_goals, do: "channel:read:goals"
 
-  @spec read_guest_star() :: t()
-  def read_guest_star, do: "channel:read:guest_star"
+  @spec channel_read_guest_star() :: t()
+  def channel_read_guest_star, do: "channel:read:guest_star"
 
-  @spec manage_guest_star() :: t()
-  def manage_guest_star, do: "channel:manage:guest_star"
+  @spec channel_manage_guest_star() :: t()
+  def channel_manage_guest_star, do: "channel:manage:guest_star"
 
-  @spec read_hype_train() :: t()
-  def read_hype_train, do: "channel:read:hype_train"
+  @spec channel_read_hype_train() :: t()
+  def channel_read_hype_train, do: "channel:read:hype_train"
 
-  @spec manage_moderators() :: t()
-  def manage_moderators, do: "channel:manage:moderators"
+  @spec channel_manage_moderators() :: t()
+  def channel_manage_moderators, do: "channel:manage:moderators"
 
-  @spec read_polls() :: t()
-  def read_polls, do: "channel:read:polls"
+  @spec channel_read_polls() :: t()
+  def channel_read_polls, do: "channel:read:polls"
 
-  @spec manage_polls() :: t()
-  def manage_polls, do: "channel:manage:polls"
+  @spec channel_manage_polls() :: t()
+  def channel_manage_polls, do: "channel:manage:polls"
 
-  @spec read_predictions() :: t()
-  def read_predictions, do: "channel:read:predictions"
+  @spec channel_read_predictions() :: t()
+  def channel_read_predictions, do: "channel:read:predictions"
 
-  @spec manage_predictions() :: t()
-  def manage_predictions, do: "channel:manage:predictions"
+  @spec channel_manage_predictions() :: t()
+  def channel_manage_predictions, do: "channel:manage:predictions"
 
-  @spec manage_raids() :: t()
-  def manage_raids, do: "channel:manage:raids"
+  @spec channel_manage_raids() :: t()
+  def channel_manage_raids, do: "channel:manage:raids"
 
-  @spec read_redemptions() :: t()
-  def read_redemptions, do: "channel:read:redemptions"
+  @spec channel_read_redemptions() :: t()
+  def channel_read_redemptions, do: "channel:read:redemptions"
 
-  @spec manage_redemptions() :: t()
-  def manage_redemptions, do: "channel:manage:redemptions"
+  @spec channel_manage_redemptions() :: t()
+  def channel_manage_redemptions, do: "channel:manage:redemptions"
 
-  @spec manage_schedule() :: t()
-  def manage_schedule, do: "channel:manage:schedule"
+  @spec channel_manage_schedule() :: t()
+  def channel_manage_schedule, do: "channel:manage:schedule"
 
-  @spec read_stream_key() :: t()
-  def read_stream_key, do: "channel:read:stream_key"
+  @spec channel_read_stream_key() :: t()
+  def channel_read_stream_key, do: "channel:read:stream_key"
 
-  @spec read_channel_subscriptions() :: t()
-  def read_channel_subscriptions, do: "channel:read:subscriptions"
+  @spec channel_read_subscriptions() :: t()
+  def channel_read_subscriptions, do: "channel:read:subscriptions"
 
-  @spec manage_videos() :: t()
-  def manage_videos, do: "channel:manage:videos"
+  @spec channel_manage_videos() :: t()
+  def channel_manage_videos, do: "channel:manage:videos"
 
-  @spec read_vips() :: t()
-  def read_vips, do: "channel:read:vips"
+  @spec channel_read_vips() :: t()
+  def channel_read_vips, do: "channel:read:vips"
 
-  @spec manage_vips() :: t()
-  def manage_vips, do: "channel:manage:vips"
+  @spec channel_manage_vips() :: t()
+  def channel_manage_vips, do: "channel:manage:vips"
 
-  @spec edit_clips() :: t()
-  def edit_clips, do: "clips:edit"
+  @spec clips_edit() :: t()
+  def clips_edit, do: "clips:edit"
 
-  @spec read_moderation() :: t()
-  def read_moderation, do: "moderation:read"
+  @spec moderation_read() :: t()
+  def moderation_read, do: "moderation:read"
 
-  @spec manage_announcements() :: t()
-  def manage_announcements, do: "moderator:manage:announcements"
+  @spec moderator_manage_announcements() :: t()
+  def moderator_manage_announcements, do: "moderator:manage:announcements"
 
-  @spec manage_automod() :: t()
-  def manage_automod, do: "moderator:manage:automod"
+  @spec moderator_manage_automod() :: t()
+  def moderator_manage_automod, do: "moderator:manage:automod"
 
-  @spec read_automod_settings() :: t()
-  def read_automod_settings, do: "moderator:read:automod_settings"
+  @spec moderator_read_automod_settings() :: t()
+  def moderator_read_automod_settings, do: "moderator:read:automod_settings"
 
-  @spec manage_automod_settings() :: t()
-  def manage_automod_settings, do: "moderator:manage:automod_settings"
+  @spec moderator_manage_automod_settings() :: t()
+  def moderator_manage_automod_settings, do: "moderator:manage:automod_settings"
 
-  @spec manage_banned_users() :: t()
-  def manage_banned_users, do: "moderator:manage:banned_users"
+  @spec moderator_manage_banned_users() :: t()
+  def moderator_manage_banned_users, do: "moderator:manage:banned_users"
 
-  @spec read_blocked_terms() :: t()
-  def read_blocked_terms, do: "moderator:read:blocked_terms"
+  @spec moderator_read_blocked_terms() :: t()
+  def moderator_read_blocked_terms, do: "moderator:read:blocked_terms"
 
-  @spec manage_blocked_terms() :: t()
-  def manage_blocked_terms, do: "moderator:manage:blocked_terms"
+  @spec moderator_manage_blocked_terms() :: t()
+  def moderator_manage_blocked_terms, do: "moderator:manage:blocked_terms"
 
-  @spec manage_chat_messages() :: t()
-  def manage_chat_messages, do: "moderator:manage:chat_messages"
+  @spec moderator_manage_chat_messages() :: t()
+  def moderator_manage_chat_messages, do: "moderator:manage:chat_messages"
 
-  @spec read_chat_settings() :: t()
-  def read_chat_settings, do: "moderator:read:chat_settings"
+  @spec moderator_read_chat_settings() :: t()
+  def moderator_read_chat_settings, do: "moderator:read:chat_settings"
 
-  @spec manage_chat_settings() :: t()
-  def manage_chat_settings, do: "moderator:manage:chat_settings"
+  @spec moderator_manage_chat_settings() :: t()
+  def moderator_manage_chat_settings, do: "moderator:manage:chat_settings"
 
-  @spec read_chatters() :: t()
-  def read_chatters, do: "moderator:read:chatters"
+  @spec moderator_read_chatters() :: t()
+  def moderator_read_chatters, do: "moderator:read:chatters"
 
-  @spec read_followers() :: t()
-  def read_followers, do: "moderator:read:followers"
+  @spec moderator_read_followers() :: t()
+  def moderator_read_followers, do: "moderator:read:followers"
 
   @spec moderator_read_guest_star() :: t()
   def moderator_read_guest_star, do: "moderator:read:guest_star"
@@ -139,121 +139,121 @@ defmodule Twex.Auth.Scope do
   @spec moderator_manage_guest_star() :: t()
   def moderator_manage_guest_star, do: "moderator:manage:guest_star"
 
-  @spec read_shield_mode() :: t()
-  def read_shield_mode, do: "moderator:read:shield_mode"
+  @spec moderator_read_shield_mode() :: t()
+  def moderator_read_shield_mode, do: "moderator:read:shield_mode"
 
-  @spec manage_shield_mode() :: t()
-  def manage_shield_mode, do: "moderator:manage:shield_mode"
+  @spec moderator_manage_shield_mode() :: t()
+  def moderator_manage_shield_mode, do: "moderator:manage:shield_mode"
 
-  @spec read_shoutouts() :: t()
-  def read_shoutouts, do: "moderator:read:shoutouts"
+  @spec moderator_read_shoutouts() :: t()
+  def moderator_read_shoutouts, do: "moderator:read:shoutouts"
 
-  @spec manage_shoutouts() :: t()
-  def manage_shoutouts, do: "moderator:manage:shoutouts"
+  @spec moderator_manage_shoutouts() :: t()
+  def moderator_manage_shoutouts, do: "moderator:manage:shoutouts"
 
-  @spec read_unban_requests() :: t()
-  def read_unban_requests, do: "moderator:read:unban_requests"
+  @spec moderator_read_unban_requests() :: t()
+  def moderator_read_unban_requests, do: "moderator:read:unban_requests"
 
-  @spec edit_user() :: t()
-  def edit_user, do: "user:edit"
+  @spec user_edit() :: t()
+  def user_edit, do: "user:edit"
 
-  @spec edit_follows() :: t()
-  def edit_follows, do: "user:edit:follows"
+  @spec user_edit_follows() :: t()
+  def user_edit_follows, do: "user:edit:follows"
 
-  @spec read_blocked_users() :: t()
-  def read_blocked_users, do: "user:read:blocked_users"
+  @spec user_read_blocked_users() :: t()
+  def user_read_blocked_users, do: "user:read:blocked_users"
 
-  @spec manage_blocked_users() :: t()
-  def manage_blocked_users, do: "user:manage:blocked_users"
+  @spec user_manage_blocked_users() :: t()
+  def user_manage_blocked_users, do: "user:manage:blocked_users"
 
-  @spec read_broadcast() :: t()
-  def read_broadcast, do: "user:read:broadcast"
+  @spec user_read_broadcast() :: t()
+  def user_read_broadcast, do: "user:read:broadcast"
 
-  @spec manage_chat_color() :: t()
-  def manage_chat_color, do: "user:manage:chat_color"
+  @spec user_manage_chat_color() :: t()
+  def user_manage_chat_color, do: "user:manage:chat_color"
 
-  @spec read_email() :: t()
-  def read_email, do: "user:read:email"
+  @spec user_read_email() :: t()
+  def user_read_email, do: "user:read:email"
 
-  @spec read_emotes() :: t()
-  def read_emotes, do: "user:read:emotes"
+  @spec user_read_emotes() :: t()
+  def user_read_emotes, do: "user:read:emotes"
 
-  @spec read_follows() :: t()
-  def read_follows, do: "user:read:follows"
+  @spec user_read_follows() :: t()
+  def user_read_follows, do: "user:read:follows"
 
-  @spec read_moderated_channels() :: t()
-  def read_moderated_channels, do: "user:read:moderated_channels"
+  @spec user_read_moderated_channels() :: t()
+  def user_read_moderated_channels, do: "user:read:moderated_channels"
 
-  @spec read_user_subscriptions() :: t()
-  def read_user_subscriptions, do: "user:read:subscriptions"
+  @spec user_read_subscriptions() :: t()
+  def user_read_subscriptions, do: "user:read:subscriptions"
 
-  @spec manage_whispers() :: t()
-  def manage_whispers, do: "user:manage:whispers"
+  @spec user_manage_whispers() :: t()
+  def user_manage_whispers, do: "user:manage:whispers"
 
   @spec all() :: list(t())
   def all,
     do: [
-      read_extensions(),
-      read_games(),
-      read_bits(),
-      manage_ads(),
-      read_ads(),
-      manage_broadcast(),
-      read_charity(),
-      edit_commercial(),
-      read_editors(),
-      manage_extensions(),
-      read_goals(),
-      read_guest_star(),
-      manage_guest_star(),
-      read_hype_train(),
-      manage_moderators(),
-      read_polls(),
-      manage_polls(),
-      read_predictions(),
-      manage_predictions(),
-      manage_raids(),
-      read_redemptions(),
-      manage_redemptions(),
-      manage_schedule(),
-      read_stream_key(),
-      read_channel_subscriptions(),
-      manage_videos(),
-      read_vips(),
-      manage_vips(),
-      edit_clips(),
-      read_moderation(),
-      manage_announcements(),
-      manage_automod(),
-      read_automod_settings(),
-      manage_automod_settings(),
-      manage_banned_users(),
-      read_blocked_terms(),
-      manage_blocked_terms(),
-      manage_chat_messages(),
-      read_chat_settings(),
-      manage_chat_settings(),
-      read_chatters(),
-      read_followers(),
+      analytics_read_extensions(),
+      analytics_read_games(),
+      bits_read(),
+      channel_manage_ads(),
+      channel_read_ads(),
+      channel_manage_broadcast(),
+      channel_read_charity(),
+      channel_edit_commercial(),
+      channel_read_editors(),
+      channel_manage_extensions(),
+      channel_read_goals(),
+      channel_read_guest_star(),
+      channel_manage_guest_star(),
+      channel_read_hype_train(),
+      channel_manage_moderators(),
+      channel_read_polls(),
+      channel_manage_polls(),
+      channel_read_predictions(),
+      channel_manage_predictions(),
+      channel_manage_raids(),
+      channel_read_redemptions(),
+      channel_manage_redemptions(),
+      channel_manage_schedule(),
+      channel_read_stream_key(),
+      channel_read_subscriptions(),
+      channel_manage_videos(),
+      channel_read_vips(),
+      channel_manage_vips(),
+      clips_edit(),
+      moderation_read(),
+      moderator_manage_announcements(),
+      moderator_manage_automod(),
+      moderator_read_automod_settings(),
+      moderator_manage_automod_settings(),
+      moderator_manage_banned_users(),
+      moderator_read_blocked_terms(),
+      moderator_manage_blocked_terms(),
+      moderator_manage_chat_messages(),
+      moderator_read_chat_settings(),
+      moderator_manage_chat_settings(),
+      moderator_read_chatters(),
+      moderator_read_followers(),
       moderator_read_guest_star(),
       moderator_manage_guest_star(),
-      read_shield_mode(),
-      manage_shield_mode(),
-      read_shoutouts(),
-      manage_shoutouts(),
-      read_unban_requests(),
-      edit_user(),
-      edit_follows(),
-      read_blocked_users(),
-      manage_blocked_users(),
-      read_broadcast(),
-      manage_chat_color(),
-      read_email(),
-      read_emotes(),
-      read_follows(),
-      read_moderated_channels(),
-      read_user_subscriptions(),
-      manage_whispers()
+      moderator_read_shield_mode(),
+      moderator_manage_shield_mode(),
+      moderator_read_shoutouts(),
+      moderator_manage_shoutouts(),
+      moderator_read_unban_requests(),
+      user_edit(),
+      user_edit_follows(),
+      user_read_blocked_users(),
+      user_manage_blocked_users(),
+      user_read_broadcast(),
+      user_manage_chat_color(),
+      user_read_email(),
+      user_read_emotes(),
+      user_read_follows(),
+      user_read_moderated_channels(),
+      user_read_subscriptions(),
+      user_manage_whispers()
     ]
 
   @doc """
