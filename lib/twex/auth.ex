@@ -56,7 +56,7 @@ defmodule Twex.Auth do
       "response_type" => response_type,
       "client_id" => client_id,
       "redirect_uri" => redirect_uri,
-      "scope" => Enum.join(scopes, " "),
+      "scope" => Scope.join(scopes),
       "force_verify" => force_verify
     }
 
