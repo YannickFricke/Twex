@@ -10,11 +10,11 @@ defmodule Twex.Auth do
 
   The `opts` argument supports the following keys:
 
-  | Name          | Type                             | Description                                                                                                                                                         | Default value |
-  | :------------ | :------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-  | response_type | `String.t() OR list(String.t())` | The response type of the Twitch OAuth server                                                                                                                        | `"code"`      |
-  | state         | `nil OR String.t()`              | The state for identifying a user in the response                                                                                                                    | `nil`         |
-  | force_verify  | `boolean()`                      | When set to true the user will see the authorization screen again even when they already have authorized the application (with the same or less scopes than before) | `false`       |
+  | Name          | Type                               | Description                                                                                                                                                         | Default value |
+  | :------------ | :--------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+  | response_type | `t:String.t/0` OR `t:list/1`       | The response type of the Twitch OAuth server                                                                                                                        | `"code"`      |
+  | state         | `nil` OR `t:String.t/0`            | The state for identifying a user in the response                                                                                                                    | `nil`         |
+  | force_verify  | `t:boolean/0`                      | When set to true the user will see the authorization screen again even when they already have authorized the application (with the same or less scopes than before) | `false`       |
 
 
   ## Response types
