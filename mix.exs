@@ -22,6 +22,7 @@ defmodule Twex.MixProject do
       {:tesla, "~> 1.9"},
       {:jason, "~> 1.4"},
       {:ecto, "~> 3.11"},
-      {:styler, "~> 0.11", only: [:dev, :test], runtime: false}
+      {:styler, "~> 0.11", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.31", only: :dev, runtime: false}
     ]
 end
