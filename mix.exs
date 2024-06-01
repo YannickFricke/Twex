@@ -17,5 +17,11 @@ defmodule Twex.MixProject do
     ]
   end
 
-  defp deps, do: [{:tesla, "~> 1.9"}, {:jason, "~> 1.4"}, {:styler, "~> 0.11", only: [:dev, :test], runtime: false}]
+  defp deps,
+    do: [
+      {:tesla, "~> 1.9"},
+      {:jason, "~> 1.4"},
+      {:ecto, "~> 3.11"},
+      {:styler, "~> 0.11", only: [:dev, :test], runtime: false}
+    ]
 end
