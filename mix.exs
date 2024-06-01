@@ -17,7 +17,16 @@ defmodule Twex.MixProject do
       homepage_url: @repo_url,
       docs: [
         main: "Twex",
-        extras: ["README.md"]
+        extras: ["README.md"],
+        groups_for_modules: [
+          Channel: [
+            Twex.Helix.Channels,
+            Twex.Helix.Channels.ChannelInformation,
+            Twex.Helix.Channels.ChannelEditor,
+            Twex.Helix.Channels.FollowedChannelsResponse,
+            Twex.Helix.Channels.ChannelFollowersResponse
+          ]
+        ]
       ]
     ]
   end
