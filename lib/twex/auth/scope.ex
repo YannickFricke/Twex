@@ -190,6 +190,9 @@ defmodule Twex.Auth.Scope do
   @spec user_manage_whispers() :: t()
   def user_manage_whispers, do: "user:manage:whispers"
 
+  @doc """
+  Returns a String.t() list of all known scopes.
+  """
   @spec all() :: list(t())
   def all,
     do: [
