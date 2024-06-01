@@ -3,10 +3,32 @@ defmodule Twex.Http do
   Contains utility functions for working with Tesla responses
   """
 
+  @typedoc """
+  The response type is a union type of the following variants:
+
+  1. `{:ok, successful_type}`:
+
+  This variant indicates that the response is a successful response with a body of type `successful_type`.
+
+  2. `error_response(error_type)`:
+
+  See `t:error_response/1`.
+  """
   @type response(successful_type, error_type) ::
           {:ok, successful_type}
           | error_response(error_type)
 
+  @typedoc """
+  The type definition includes two possible variants:
+
+  1. `{:error, response_status_code :: pos_integer(), response_body :: error_type}`:
+
+  This variant indicates that the response is an error response with a specific status code and a body of type `error_type`.
+
+  2. `{:error, {:unknown, tesla_env :: Tesla.Env.t()}}`:
+
+  This variant indicates that an internal error inside Tesla occured.
+  """
   @type error_response(error_type) ::
           {:error, response_status_code :: pos_integer(), response_body :: error_type}
           | {:error, {:unknown, tesla_env :: Tesla.Env.t()}}
