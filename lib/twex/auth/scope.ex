@@ -260,6 +260,19 @@ defmodule Twex.Auth.Scope do
     ]
 
   @doc """
+  Joins the given list of scopes to a string
+
+  ## Examples
+
+  ```elixir
+  iex> Twex.Auth.Scope.join(~w(bits:read clips:edit))
+  "bits:read clips:edit"
+  ```
+  """
+  @spec join(scopes :: list(t())) :: String.t()
+  def join(scopes), do: Enum.join(scopes, " ")
+
+  @doc """
   Checks if the given input is a valid Twitch scope
   """
   @spec is_valid_scope?(scope_to_check :: String.t()) :: boolean()
