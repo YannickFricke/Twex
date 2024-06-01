@@ -27,6 +27,22 @@ defmodule Twex.Http do
       ])
 
   @doc """
+  Creates a new HTTP client which should be used for regular API calls.
+
+  It has the "Authorization" and "Client-Id" headers set to the given values.
+  """
+  @spec create_client(access_token :: String.t(), client_id :: String.t()) :: Tesla.Client.t()
+  @spec create_client(access_token :: String.t(), client_id :: String.t(), base_url :: String.t()) :: Tesla.Client.t()
+  def create_client(access_token, client_id, base_url \\ "https://api.twitch.tv/helix"),
+    do:
+      Tesla.client([
+        {Tesla.Middleware.BaseUrl, base_url},
+        {Tesla.Middleware.Headers, [{"Authorization", "Bearer " <> access_token}, {"Client-Id", client_id}]},
+        {Tesla.Middleware.EncodeJson, []},
+        {Tesla.Middleware.DecodeJson, []}
+      ])
+
+  @doc """
   Processes the given Tesla return value from one of the following function calls:
   - delete/3 | delete/4
   - get/3 | get/4
