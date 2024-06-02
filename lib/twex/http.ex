@@ -32,6 +32,7 @@ defmodule Twex.Http do
   @type error_response(error_type) ::
           {:error, response_status_code :: pos_integer(), response_body :: error_type}
           | {:error, {:unknown, tesla_env :: Tesla.Env.t()}}
+          | {:error, :econnrefused}
 
   @doc """
   Creates a new HTTP client which can be used for authentication related things.
@@ -98,4 +99,6 @@ defmodule Twex.Http do
 
   def process_tesla_response({:error, %Tesla.Env{} = tesla_env}, _successful_status_code),
     do: {:error, {:unknown, tesla_env}}
+
+  def process_tesla_response({:error, :econnrefused}, _successful_status_code), do: {:error, :econnrefused}
 end
