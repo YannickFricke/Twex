@@ -75,6 +75,49 @@ defmodule Twex.Auth do
   end
 
   @doc """
+  Exchanges the given authorization code in order to issue an access + refresh token.
+
+  It returns a `t:Twex.Auth.TokenResponse.t/0` struct.
+
+  ## Hint
+
+  The request also need the client id + client secret and aswell the redirect URI which
+  was used when redirecting the user to the authorization page.
+  """
+  @spec exchange_authorization_code(
+          http_client :: Tesla.Client.t(),
+          authorization_code :: String.t(),
+          client_id :: String.t(),
+          client_secret :: String.t(),
+          redirect_uri :: String.t()
+        ) ::
+          {:ok, TokenResponse.t()}
+          | Twex.Http.error_response(map())
+          | {:error, :invalid_response}
+  def exchange_authorization_code(http_client, authorization_code, client_id, client_secret, redirect_uri) do
+    http_client
+    |> Tesla.post("/token", %{
+      "code" => authorization_code,
+      "client_id" => client_id,
+      "client_secret" => client_secret,
+      "redirect_uri" => redirect_uri,
+      "grant_type" => "authorization_code"
+    })
+    |> Twex.Http.process_tesla_response()
+    |> case do
+      {:ok,
+       %{"access_token" => access_token, "refresh_token" => refresh_token, "expires_in" => expires_in, "scopes" => scopes}} ->
+        {:ok, TokenResponse.new(access_token, refresh_token, expires_in, scopes)}
+
+      {:ok, _data} ->
+        {:error, :invalid_response}
+
+      error_value ->
+        error_value
+    end
+  end
+
+  @doc """
   Implements the client credentials grant flow in order to issue an app access token.
 
   ## Reference
