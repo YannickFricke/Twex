@@ -3,41 +3,6 @@ defmodule Twex.Helix.Analytics do
   This module contains all extension analytics endpoints.
   """
 
-  defmodule DateRange do
-    @moduledoc """
-    Contains the start and end date for a analytics report.
-
-    The information includes the following items:
-
-    | Name       | Description                       |
-    | :--------- | :-------------------------------- |
-    | started_at | The reporting window's start date |
-    | ended_at   | The reporting window's end date.  |
-    """
-
-    use Twex.Http.Response
-
-    embedded_schema do
-      field :started_at, :utc_datetime
-      field :ended_at, :utc_datetime
-    end
-
-    @type t() :: %__MODULE__{
-            started_at: DateTime.t(),
-            ended_at: DateTime.t()
-          }
-
-    @spec changeset(
-            entity_or_changeset :: t() | Ecto.Changeset.t(t()),
-            params :: map()
-          ) :: Ecto.Changeset.t(t())
-    def changeset(entity_or_changeset, params) do
-      entity_or_changeset
-      |> cast(params, ~w(started_at ended_at)a)
-      |> validate_required(~w(started_at ended_at)a)
-    end
-  end
-
   defmodule ExtensionAnalyticsResponse do
     @moduledoc """
     Contains the data when the `Twex.Helix.Analytics.get_extension_analytics/2` request was successful.
@@ -72,7 +37,7 @@ defmodule Twex.Helix.Analytics do
 
       use Twex.Http.Response
 
-      alias Twex.Helix.Analytics.DateRange
+      alias Twex.Helix.DateRange
       alias Twex.Helix.Pagination
 
       embedded_schema do
@@ -227,7 +192,7 @@ defmodule Twex.Helix.Analytics do
 
       use Twex.Http.Response
 
-      alias Twex.Helix.Analytics.DateRange
+      alias Twex.Helix.DateRange
       alias Twex.Helix.Pagination
 
       embedded_schema do
