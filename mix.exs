@@ -25,6 +25,12 @@ defmodule Twex.MixProject do
             Twex.Helix.Ads.AdScheduleEntry,
             Twex.Helix.Ads.SnoozeEntry
           ],
+          Analytics: [
+            Twex.Helix.Analytics,
+            Twex.Helix.Analytics.DateRange,
+            Twex.Helix.Analytics.ExtensionAnalyticsResponse,
+            Twex.Helix.Analytics.GameAnalyticsResponse
+          ],
           Channels: [
             Twex.Helix.Channels,
             Twex.Helix.Channels.ChannelInformation,
