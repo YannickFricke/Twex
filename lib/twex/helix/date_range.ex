@@ -27,8 +27,6 @@ defmodule Twex.Helix.DateRange do
           params :: map()
         ) :: Ecto.Changeset.t(t())
   def changeset(entity_or_changeset, params) do
-    entity_or_changeset
-    |> cast(params, ~w(started_at ended_at)a)
-    |> validate_required(~w(started_at ended_at)a)
+    cast(entity_or_changeset, params, ~w(started_at ended_at)a)
   end
 end
