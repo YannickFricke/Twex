@@ -105,6 +105,38 @@ defmodule Twex.Helix.Channels do
   end
 
   @doc """
+  Returns the channel information for the given broadcaster ID.
+
+  In case of success the following tuple will be returned:
+
+  ```elixir
+  {:ok, %Twex.Helix.Channels.ChannelInformation{}}
+  ```
+
+  When the broadcaster with the given ID could not be found it returns the following tuple:
+
+  ```elixir
+  {:error, :channel_not_found}
+  ```
+  """
+  @spec get_single_channel_information(http_client :: Tesla.Client.t(), broadcaster_id :: String.t()) ::
+          Twex.Http.response(ChannelInformation.t(), term())
+          | {:error, :invalid_response}
+          | {:error, :channel_not_found}
+  def get_single_channel_information(http_client, broadcaster_id) do
+    case get_channel_information(http_client, [broadcaster_id]) do
+      {:ok, []} ->
+        {:error, :channel_not_found}
+
+      {:ok, [channel_information]} ->
+        {:ok, channel_information}
+
+      error_value ->
+        error_value
+    end
+  end
+
+  @doc """
   Updates a channel's properties.
 
   Look at the referenced URL to check which fields can be updated.
