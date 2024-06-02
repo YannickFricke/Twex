@@ -19,6 +19,12 @@ defmodule Twex.MixProject do
         main: "Twex",
         extras: ["README.md"],
         groups_for_modules: [
+          Ads: [
+            Twex.Helix.Ads,
+            Twex.Helix.Ads.StartCommercialResponse,
+            Twex.Helix.Ads.AdScheduleEntry,
+            Twex.Helix.Ads.SnoozeEntry
+          ],
           Channels: [
             Twex.Helix.Channels,
             Twex.Helix.Channels.ChannelInformation,
