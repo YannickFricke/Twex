@@ -243,7 +243,7 @@ defmodule Twex.Helix.Channels do
     use Twex.Http.Response
 
     alias Twex.Helix.Channels.FollowedChannelsResponse.FollowedChannel
-    alias Twex.Helix.Channels.FollowedChannelsResponse.Pagination
+    alias Twex.Helix.Pagination
 
     defmodule FollowedChannel do
       @moduledoc """
@@ -284,28 +284,6 @@ defmodule Twex.Helix.Channels do
         |> cast(params, ~w(broadcaster_id broadcaster_login broadcaster_name followed_at)a)
         |> validate_required(~w(broadcaster_id broadcaster_login broadcaster_name followed_at)a)
       end
-    end
-
-    defmodule Pagination do
-      @moduledoc """
-      Contains the information used to page through the list of results.
-      """
-
-      use Twex.Http.Response
-
-      embedded_schema do
-        field :cursor, :string
-      end
-
-      @type t() :: %__MODULE__{
-              cursor: String.t()
-            }
-
-      @spec changeset(
-              schema :: t() | Ecto.Changeset.t(t()),
-              params :: map()
-            ) :: Ecto.Changeset.t(t())
-      def changeset(schema, params), do: cast(schema, params, ~w(cursor)a)
     end
 
     embedded_schema do
@@ -377,7 +355,7 @@ defmodule Twex.Helix.Channels do
     use Twex.Http.Response
 
     alias Twex.Helix.Channels.ChannelFollowersResponse.ChannelFollower
-    alias Twex.Helix.Channels.ChannelFollowersResponse.Pagination
+    alias Twex.Helix.Pagination
 
     embedded_schema do
       embeds_many :data, ChannelFollower, primary_key: false do
@@ -387,9 +365,7 @@ defmodule Twex.Helix.Channels do
         field :followed_at, :utc_datetime
       end
 
-      embeds_one :pagination, Pagination, primary_key: false do
-        field :cursor, :string
-      end
+      embeds_one :pagination, Pagination
 
       field :total, :integer
     end
@@ -401,13 +377,9 @@ defmodule Twex.Helix.Channels do
             followed_at: DateTime.t()
           }
 
-    @type pagination() :: %Pagination{
-            cursor: String.t()
-          }
-
     @type t() :: %__MODULE__{
             data: list(channel_follower()),
-            pagination: pagination() | nil,
+            pagination: Pagination.t() | nil,
             total: non_neg_integer()
           }
 
@@ -416,7 +388,7 @@ defmodule Twex.Helix.Channels do
       entity_or_changeset
       |> cast(params, ~w(total)a)
       |> cast_embed(:data, with: &channel_follower_changeset/2)
-      |> cast_embed(:pagination, with: &pagination_changeset/2)
+      |> cast_embed(:pagination)
       |> validate_required(~w(total)a)
     end
 
@@ -429,12 +401,6 @@ defmodule Twex.Helix.Channels do
       |> cast(params, ~w(user_id user_login user_name followed_at)a)
       |> validate_required(~w(user_id user_login user_name followed_at)a)
     end
-
-    @spec pagination_changeset(
-            schema :: pagination() | Ecto.Changeset.t(pagination()),
-            params :: map()
-          ) :: Ecto.Changeset.t(pagination())
-    def pagination_changeset(schema, params), do: cast(schema, params, ~w(cursor)a)
   end
 
   @doc """
