@@ -4,6 +4,7 @@ defmodule Twex.Auth do
   """
 
   alias Twex.Auth.Scope
+  alias Twex.Auth.TokenResponse
 
   @doc """
   Builds an authorization URL which should be visited by users in order to connect Twitch to your application.
@@ -85,7 +86,7 @@ defmodule Twex.Auth do
           client_id :: String.t(),
           client_secret :: String.t()
         ) ::
-          {:ok, access_token :: String.t(), expires_in :: non_neg_integer()}
+          {:ok, TokenResponse.t()}
           | Twex.Http.error_response(map())
   def get_app_access_token(http_client, client_id, client_secret) do
     http_client
@@ -97,7 +98,7 @@ defmodule Twex.Auth do
     |> Twex.Http.process_tesla_response()
     |> case do
       {:ok, %{"access_token" => access_token, "expires_in" => expires_in}} ->
-        {:ok, access_token, expires_in}
+        {:ok, TokenResponse.new(access_token, expires_in, [])}
 
       error ->
         error

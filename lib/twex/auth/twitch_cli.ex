@@ -4,6 +4,7 @@ defmodule Twex.Auth.TwitchCli do
   """
 
   alias Twex.Auth.Scope
+  alias Twex.Auth.TokenResponse
 
   @doc """
   Returns in case of success an access token + expires in duration for the given user id.
@@ -17,7 +18,7 @@ defmodule Twex.Auth.TwitchCli do
           user_id :: String.t(),
           scopes :: list(Twex.Auth.Scope.t())
         ) ::
-          {:ok, access_token :: String.t(), expires_in :: non_neg_integer()}
+          {:ok, TokenResponse.t()}
           | Twex.Http.error_response(map())
   def authorize_user(http_client, client_id, client_secret, user_id, scopes) do
     http_client
@@ -35,9 +36,11 @@ defmodule Twex.Auth.TwitchCli do
       {:ok,
        %{
          "access_token" => access_token,
-         "expires_in" => expires_in
+         "refresh_token" => refresh_token,
+         "expires_in" => expires_in,
+         "scope" => scopes
        }} ->
-        {:ok, access_token, expires_in}
+        {:ok, TokenResponse.new(access_token, refresh_token, expires_in, scopes)}
 
       error_value ->
         error_value
