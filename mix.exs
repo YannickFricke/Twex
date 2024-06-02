@@ -19,7 +19,7 @@ defmodule Twex.MixProject do
         main: "Twex",
         extras: ["README.md"],
         groups_for_modules: [
-          Channel: [
+          Channels: [
             Twex.Helix.Channels,
             Twex.Helix.Channels.ChannelInformation,
             Twex.Helix.Channels.ChannelEditor,
