@@ -31,6 +31,12 @@ defmodule Twex.MixProject do
             Twex.Helix.Analytics.ExtensionAnalyticsResponse,
             Twex.Helix.Analytics.GameAnalyticsResponse
           ],
+          Bits: [
+            Twex.Helix.Bits,
+            Twex.Helix.Bits.BitsLeaderboardResponse,
+            Twex.Helix.Bits.Cheermote,
+            Twex.Helix.Bits.ExtensionTransactionsResponse
+          ],
           Channels: [
             Twex.Helix.Channels,
             Twex.Helix.Channels.ChannelInformation,
