@@ -351,7 +351,7 @@ defmodule Twex.Helix.Channels do
   """
   @spec get_followed_channels(http_client :: Tesla.Client.t(), user_id :: String.t()) ::
           Twex.Http.response(FollowedChannelsResponse.t(), map()) | {:error, :invalid_response}
-  @spec get_followed_channels(http_client :: Tesla.Client.t(), user_id :: String.t(), opts :: Keyword.t()) ::
+  @spec get_followed_channels(http_client :: Tesla.Client.t(), user_id :: String.t(), opts :: keyword()) ::
           Twex.Http.response(FollowedChannelsResponse.t(), map()) | {:error, :invalid_response}
   def get_followed_channels(http_client, user_id, opts \\ []) do
     query_params = Keyword.put(opts, :user_id, user_id)
@@ -465,7 +465,7 @@ defmodule Twex.Helix.Channels do
   @spec get_channel_followers(
           http_client :: Tesla.Client.t(),
           broadcaster_id :: String.t(),
-          opts :: Keyword.t()
+          opts :: keyword()
         ) :: Twex.Http.response(ChannelFollowersResponse.t(), map()) | {:error, :invalid_response}
   def get_channel_followers(http_client, broadcaster_id, opts \\ []) do
     query_params = Keyword.put(opts, :broadcaster_id, broadcaster_id)

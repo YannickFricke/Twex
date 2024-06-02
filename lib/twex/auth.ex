@@ -42,7 +42,7 @@ defmodule Twex.Auth do
           client_id :: String.t(),
           redirect_uri :: String.t(),
           scopes :: list(Scope.t()),
-          opts :: Keyword.t()
+          opts :: keyword()
         ) :: String.t()
   def build_authorization_url(client_id, redirect_uri, scopes, opts \\ []) do
     response_type =
